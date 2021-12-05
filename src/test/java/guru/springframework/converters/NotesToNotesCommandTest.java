@@ -2,19 +2,19 @@ package guru.springframework.converters;
 
 import guru.springframework.commands.NotesCommand;
 import guru.springframework.domain.Notes;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class NotesToNotesCommandTest {
+public class NotesToNotesCommandTest {
 
     public static final String ID_VALUE = "1";
     public static final String RECIPE_NOTES = "Notes";
     NotesToNotesCommand converter;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         converter = new NotesToNotesCommand();
     }
 

@@ -1,58 +1,47 @@
-plugins {
-	id 'org.springframework.boot' version '2.5.6'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
-  id 'jacoco'
-}
-
-group = 'guru.springframework'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
-
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
+buildscript {
+	ext {
+		springBootVersion = '2.1.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'jacoco'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
-  maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
 }
 
+
 dependencies {
-//	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-  	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-  	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-  	implementation 'org.springframework.boot:spring-boot-devtools'
-  	compileOnly 'org.webjars:bootstrap:3.4.1'
-	// implementation 'org.springframework.boot:spring-boot-starter-webflux'
-
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
-	testImplementation 'io.projectreactor:reactor-test'
-	testImplementation 'junit:junit'
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	compile 'org.webjars:bootstrap:3.3.7-1'
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-test {
-	useJUnitPlatform()
+//export test coverage
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
 }
-
-sourceSets{
-	test {
-		java.srcDirs = ['src/test/java']
-	}
-}
-
-//jacocoTestReport {
-//  reports {
-//    xml.enable true
-//    html.enable false
-//  }
-//}

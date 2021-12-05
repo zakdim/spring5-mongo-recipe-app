@@ -1,12 +1,12 @@
 package guru.springframework.repositories;
 
 import guru.springframework.domain.UnitOfMeasure;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
@@ -15,15 +15,15 @@ import static org.junit.Assert.assertEquals;
 /**
  * Créé par developer le 2021-06-24.
  */
-@Disabled
-@ExtendWith(SpringExtension.class)
+@Ignore
+@RunWith(SpringRunner.class)
 //@DataJpaTest
 public class UnitOfMeasureRepositoryIT {
 
     @Autowired
     private UnitOfMeasureRepository unitOfMeasureRepository;
 
-    @BeforeEach
+    @Before
     public void setUp() throws Exception {
     }
 

@@ -2,12 +2,12 @@ package guru.springframework.converters;
 
 import guru.springframework.commands.RecipeCommand;
 import guru.springframework.domain.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class RecipeToRecipeCommandTest {
+public class RecipeToRecipeCommandTest {
 
     public static final String RECIPE_ID = "1";
     public static final Integer COOK_TIME = Integer.valueOf("5");
@@ -25,8 +25,8 @@ class RecipeToRecipeCommandTest {
     public static final String NOTES_ID = "9";
     RecipeToRecipeCommand converter;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         converter = new RecipeToRecipeCommand(
                 new CategoryToCategoryCommand(),
                 new IngredientToIngredientCommand(new UnitOfMeasureToUnitOfMeasureCommand()),

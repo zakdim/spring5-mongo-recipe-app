@@ -6,8 +6,8 @@ import guru.springframework.converters.RecipeToRecipeCommand;
 import guru.springframework.domain.Recipe;
 import guru.springframework.exceptions.NotFoundException;
 import guru.springframework.repositories.RecipeRepository;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -15,7 +15,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 /**
@@ -34,9 +35,9 @@ public class RecipeServiceImplTest {
     @Mock
     RecipeCommandToRecipe recipeCommandToRecipe;
 
-    @BeforeEach
+    @Before
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
+        MockitoAnnotations.initMocks(this);
 
         recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
@@ -56,23 +57,16 @@ public class RecipeServiceImplTest {
         verify(recipeRepository, never()).findAll();
     }
 
-//    @Test(expected = NotFoundException.class)
-    @Test
+    @Test(expected = NotFoundException.class)
     public void getRecipeByIdTestNotFound() throws Exception {
-        NotFoundException thrown = assertThrows(
-                NotFoundException.class,
-                () -> {
-                    Optional<Recipe> recipeOptional = Optional.empty();
 
-                    when(recipeRepository.findById(anyString())).thenReturn(recipeOptional);
+        Optional<Recipe> recipeOptional = Optional.empty();
 
-                    Recipe recipeReturned = recipeService.findById("1");
+        when(recipeRepository.findById(anyString())).thenReturn(recipeOptional);
 
-                    //should go boom
-                }
+        Recipe recipeReturned = recipeService.findById("1");
 
-        );
-
+        //should go boom
     }
 
     @Test

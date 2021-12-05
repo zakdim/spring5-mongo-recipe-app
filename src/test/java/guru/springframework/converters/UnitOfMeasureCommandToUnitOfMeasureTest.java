@@ -2,19 +2,19 @@ package guru.springframework.converters;
 
 import guru.springframework.commands.UnitOfMeasureCommand;
 import guru.springframework.domain.UnitOfMeasure;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class UnitOfMeasureCommandToUnitOfMeasureTest {
+public class UnitOfMeasureCommandToUnitOfMeasureTest {
 
     public static final String DESCRIPTION = "description";
     public static final String LONG_VALUE = "1";
 
     UnitOfMeasureCommandToUnitOfMeasure converter;
 
-    @BeforeEach
+    @Before
     public void setUp() throws Exception {
         converter = new UnitOfMeasureCommandToUnitOfMeasure();
 

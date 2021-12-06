@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/zakdim/spring5-mongo-recipe-app/tree/master.svg?style=svg)](https://circleci.com/gh/zakdim/spring5-mongo-recipe-app/tree/master)
+[comment]: <> ([![CircleCI]&#40;https://circleci.com/gh/zakdim/spring5-mongo-recipe-app/tree/master.svg?style=svg&#41;]&#40;https://circleci.com/gh/zakdim/spring5-mongo-recipe-app/tree/master&#41;)
 
 [comment]: <> ([![codecov]&#40;https://codecov.io/gh/zakdim/spring5-mysql-recipe-app/branch/master/graph/badge.svg?token=SF6BA3YVF7&#41;]&#40;https://codecov.io/gh/zakdim/spring5-mysql-recipe-app&#41;)
 

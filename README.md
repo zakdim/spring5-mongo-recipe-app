@@ -66,3 +66,10 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 Recipe Application Using MongoDB
 
 * [GitHub springframeworkguru/spring5-mongo-recipe-app](https://github.com/springframeworkguru/spring5-mongo-recipe-app)
+
+
+### Lecture 321 - Refactoring Data Model for MongoDB
+
+* Install [Robo 3T](https://robomongo.org/)
+
+Update port for embedded mongo DB (see springboot app log: "Opened connection" ...)

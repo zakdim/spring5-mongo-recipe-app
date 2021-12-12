@@ -4,10 +4,10 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 /**
  * Created by developer on 2021-06-08.
@@ -18,8 +18,8 @@ import java.math.BigDecimal;
 @ToString
 public class Ingredient {
 
-    @Id
-    private String id;
+//    @Id
+    private String id = UUID.randomUUID().toString();
     private String description;
     private BigDecimal amount;
 
